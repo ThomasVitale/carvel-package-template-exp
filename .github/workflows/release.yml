@@ -1,0 +1,22 @@
+name: Release
+
+on:
+  - workflow_dispatch
+
+jobs:
+  release:
+    name: Release
+    permissions:
+      contents: write
+      id-token: write
+      packages: write
+    uses: arktonix/cloud-native-utils/.github/workflows/package-release.yml@main
+    with:
+      package-name-slug: <package_name>
+      package-name-display: <package_name_display>
+      registry-server: ghcr.io
+      registry-username: ${{ github.actor }}
+      image: ${{ github.repository }}
+      version: <package_version>
+    secrets:
+      pull-request-token: ${{ secrets.GH_ORG_PAT }}
