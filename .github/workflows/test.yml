@@ -1,9 +1,14 @@
-# name: Test
+name: Test
 
-# on:
-#   - push
+on:
+  - push
 
-# jobs:
+jobs:
+  template:
+    runs-on: ubuntu-22.04
+    steps:
+      - run: echo "Template"
+
 #   test-config:
 #     name: Configuration Tests
 #     permissions:
